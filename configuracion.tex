@@ -1,0 +1,56 @@
+                                %%%%%%%%%%%%%%%
+                                % INFORMACION %
+                                %%%%%%%%%%%%%%%
+\title{\textbf{}}
+\author{%
+Christian Camilo Idarraga - 2415429,\\
+Juan Diego García - 2419397,\\
+Julián Medina - 24117473
+}
+                          %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                          % PAQUETES Y CONFIGURACION %
+                          %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% unidades
+\usepackage{siunitx}
+% geometria
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+% graficos
+\usepackage{pgf, pgfplots, pgfplotstable}
+\pgfplotsset{width=7cm, compat=newest}
+% multicolumnas
+\usepackage{multicol}
+\usepackage{float}
+% idioma
+\usepackage{booktabs}
+\usepackage[spanish]{babel}
+\usepackage{csquotes}
+% texto de relleno xd
+\usepackage{lipsum}
+% minipage
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+% simbolos
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+% referencias
+\usepackage[backend=bibtex]{biblatex}
+%\usepackage{biblatex}
+\addbibresource{res/referencias.bib}
+                                   %%%%%%%%%%
+                                   % MACROS %
+                                   %%%%%%%%%%
+% una columna
+\def\beginoneccolumn{\end{multicols}}
+\def\endonecolumn{\begin{multicols}{2}}
+% para tener una buena referencia de que tan largo sera el resumen
+\newbox\one
+\newbox\two
+\long\def\loremlines#1{%
+	\setbox\one=\vbox {%
+		\lipsum%
+	}
+	\setbox\two=\vsplit\one to #1\baselineskip
+	\unvbox\two}

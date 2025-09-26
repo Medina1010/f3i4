@@ -1,0 +1,16 @@
+*.aux
+*-blx.bib
+*.fdb_latexmk
+*.fls
+*.synctex
+*.bbl
+*.blf
+*.blg
+*.bcf
+*.log
+*.pdf
+*.xml
+*.gz
+programin/main
+main
+Makefile
