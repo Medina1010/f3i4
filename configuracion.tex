@@ -40,6 +40,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{enumitem}
+\usepackage{icomma}
 \usepackage{physics}
 % referencias
 \usepackage[backend=bibtex]{biblatex}
@@ -48,6 +49,8 @@
                                    %%%%%%%%%%
                                    % MACROS %
                                    %%%%%%%%%%
+% fix de comandos en conflicto                         
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
 % una columna
 \def\beginoneccolumn{\end{multicols}}
 \def\endonecolumn{\begin{multicols}{2}}
