@@ -15,7 +15,7 @@ for file in files:
 
 data['I00A5'][0:,1] -= 0.008
 data['I04A5'] = data['I04A5'][20:]
-data['I08A5'] = data['I04A5'][5:]
+data['I08A5'] = data['I08A5'][10:]
 
 maximos = {}
 
@@ -40,6 +40,8 @@ for file in files:
     omegas[file] = 2 * np.pi / np.average(maximos[file][1:,0]-maximos[file][0:-1,0])
     print(file+': ', omegas[file])
 
+omegas['I00'] = 6.505
+
 gammas = {}
 maximosl = {}
 print('gammas')
@@ -60,4 +62,31 @@ for file in files:
 
 print('omega esperado')
 for file in files:
-    print(file+': ', (omegas[file]**2-gammas[file]**2)**(1/2))
+    print(file+': ', (omegas['I00']**2-gammas[file]**2)**(1/2))
+
+print('omega resonancia esperado')
+for file in files:
+    print(file+': ', (omegas['I00A5']**2-2*gammas[file]**2)**(1/2))
+
+
+plt.plot(gammas['I00A5']**2, omegas['I00A5']**2,'b.')
+plt.plot(gammas['I02A5']**2, omegas['I02A5']**2,'b.')
+plt.plot(gammas['I04A5']**2, omegas['I04A5']**2,'b.')
+plt.plot(gammas['I06A5']**2, omegas['I06A5']**2,'b.')
+plt.plot(gammas['I08A5']**2, omegas['I08A5']**2,'b.')
+
+cosita = np.array([
+[gammas['I00A5']**2, omegas['I00A5']**2],
+[gammas['I02A5']**2, omegas['I02A5']**2],
+[gammas['I04A5']**2, omegas['I04A5']**2],
+[gammas['I06A5']**2, omegas['I06A5']**2],
+[gammas['I08A5']**2, omegas['I08A5']**2,]])
+
+cositacoef = np.polyfit(cosita[1:-1,0],cosita[1:-1,1],1)
+
+print('w0: ', (cositacoef[1])**(1/2))
+
+x = np.linspace(cosita[0,0], cosita[-1,0])
+plt.plot(x, x*cositacoef[0]+cositacoef[1])
+
+plt.savefig('omega_corr.png')
