@@ -11,7 +11,12 @@ data = {}
 for file in files:
     data[file] = np.loadtxt('res/'+file+'.csv', delimiter = ';', encoding='utf-8-sig')
 
-data[todo] = data[todo][0:50000]
+fourier = np.fft.fft(data[todo][0:,1])
+
+x = np.linspace(1,500,600)
+
+plt.scatter(x, np.abs(fourier)[200:800])
+plt.savefig("fourier")
 
 files.append('V03')
 data['V03'] = data[todo][200:1400]
