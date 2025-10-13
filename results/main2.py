@@ -35,6 +35,8 @@ for file in files:
 for file in files:
     plt.plot(data[file][0:,0], data[file][0:,1])
     plt.plot(maximos[file][0:,0],maximos[file][0:,1], '.')
+    plt.xlabel("tiempo, s")
+    plt.ylabel("Amplitud, cm")
     plt.savefig('res/'+file+'.png')
     plt.cla()
 

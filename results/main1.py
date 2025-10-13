@@ -25,6 +25,8 @@ for file in files:
 for file in files:
     plt.plot(data[file][0:,0], data[file][0:,1])
     plt.plot(maximos[file][0:,0],maximos[file][0:,1], '.')
+    plt.xlabel("tiempo, s")
+    plt.ylabel("Amplitud, cm")
     plt.savefig('res/'+file+'.png')
     plt.cla()
 
@@ -57,6 +59,8 @@ for file in files:
     plt.plot(x, x*coef[0]+coef[1])
 
     plt.plot(maximosl[file][0:,0],maximosl[file][0:,1], '.')
+    plt.xlabel("tiempo, s")
+    plt.ylabel("logaritmo de la Amplitud")
     plt.savefig('res/'+file+'l.png')
     plt.cla()
 

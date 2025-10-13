@@ -17,6 +17,7 @@ x = np.linspace(1,500,600)
 
 plt.scatter(x, np.abs(fourier)[200:800])
 plt.savefig("fourier")
+plt.cla();
 
 files.append('V03')
 data['V03'] = data[todo][200:1400]
@@ -56,7 +57,10 @@ for file in files:
 for file in files:
     plt.plot(data[file][0:,0], data[file][0:,1])
     plt.plot(maximos[file][0:,0],maximos[file][0:,1], '.')
+plt.xlabel("tiempo, s")
+plt.ylabel("Amplitud, cm")
 plt.savefig('res/Todo.png')
+plt.cla();
 
 periodos = {}
 print('periodos')
@@ -92,4 +96,6 @@ plt.plot(x,np.average(A)*np.sqrt((w0**2-x**2)**2+(2*g*x)**2)**(-1))
 
 for file in files:
     plt.plot(omegas[file], vmaximos[file], '.')
+plt.xlabel("Frecuencia ángular, rad s^-1")
+plt.ylabel("Amplitud, cm")
 plt.savefig('reso.png')
