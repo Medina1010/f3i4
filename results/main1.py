@@ -42,7 +42,7 @@ for file in files:
     omegas[file] = 2 * np.pi / np.average(maximos[file][1:,0]-maximos[file][0:-1,0])
     print(file+': ', omegas[file])
 
-omegas['I00'] = 6.505
+omegas['I00'] = 6.511494874454993
 
 gammas = {}
 maximosl = {}
@@ -70,7 +70,7 @@ for file in files:
 
 print('omega resonancia esperado')
 for file in files:
-    print(file+': ', (omegas['I00A5']**2-2*gammas[file]**2)**(1/2))
+    print(file+': ', (omegas['I00']**2-2*gammas[file]**2)**(1/2))
 
 
 plt.plot(gammas['I00A5']**2, omegas['I00A5']**2,'b.')
