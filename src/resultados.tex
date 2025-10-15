@@ -1,1 +1,24 @@
 \section*{Resultados}
+\subsection*{1. Frecuencia de resonancia para distintos amortiguamientos}
+\input{src/regimen.tex}
+\vspace{1cm}
+
+\input{src/tabla.tex}
+
+\subsection*{2. Amplitud máxima en función de la frecuencia}
+
+En la Fig. (\ref{fig:amplitudfrecuencia}) se muestra la amplitud máxima $A_M$ de las 
+oscilaciones en el régimen permanente con respecto a la frecuencia impulsora empleada 
+$\omega_f$, para una corriente de amortiguamiento $I$ = \qty{0,4}{\ampere}. Cada punto en la
+figura representa la amplitud registrada en función de la frecuencia del sistema. La curva 
+azul es la función de la forma (\ref{eq:amplitudforzada}) que mejor ajusta los puntos. En el
+anexo se especifica el proceso empleado para determinar la frecuencia correspondiente a los
+voltajes impulsores y la regresión utilizada para establecer la curva.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{results/res/reso.png}
+	\captionof{figure}{Amplitud máxima en función de la frecuencia para una corriente de
+					amortiguamiento de \qty{0,4}{\ampere}. El pico de amplitud ocurre cuando
+					$\omega_f=\omega_R=\;$\qty{6,504}{\per\second}.}
+	\label{fig:amplitudfrecuencia}
+\end{figure}
